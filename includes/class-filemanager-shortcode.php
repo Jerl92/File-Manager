@@ -918,7 +918,7 @@ function filemanager_shortcode() {
                             }
                             echo "</div>";
                         }
-                    echo "</div></div></div>";
+                    echo "</div></div>";
                     ?><div id='treeview' class='treeview'><?php
                         if ($treepath_strpos == true && $read_tree == true) {
                             $ffs = scandir($treepath);
@@ -1153,7 +1153,7 @@ function filemanager_shortcode() {
                     } else { ?>
                         <div class='navbar navbarfile'>
                             <a href="<?php echo $download_link ?>" class="no-smoothState">Download</a>
-                        </div></div><?php   
+                        </div><?php   
                         echo '<div class="">' . basename($object_id) . '</div>';
                         echo '<div class="">' . formatSizeUnits(filesize($object_id)) . '</div>';
 

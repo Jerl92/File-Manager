@@ -1,6 +1,6 @@
 <?php
 
-function set_userid_cookie() {
+function set_userid_cookie_() {
 	if(!get_current_user_id()) {
         $cookie_name = 'userid';
         if(!isset($_COOKIE[$cookie_name])) {
@@ -9,6 +9,6 @@ function set_userid_cookie() {
         }
 	}
 }
-add_action( 'init', 'set_userid_cookie');
+add_action( 'init', 'set_userid_cookie_');
 
 ?>
