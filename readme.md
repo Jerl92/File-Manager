@@ -12,7 +12,7 @@ You can upload files and directorie, create blank file and directorie, copy and 
 1. Unzip file in your `/wp-content/plugins` directorie.
 2. Activate plugin in wp-admin.
 3. Go to the admin setting page, and add workplace and give the read and write autorization to your user.
-3. Use short code [filemanager-shortcode] in page.
+3. Use short code `[file-manager]` in page.
 4. Set the permision of `oauth` file in `/includes/tokens` to read and write for www-data.
 
 ## Support
