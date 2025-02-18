@@ -141,6 +141,7 @@ class MySettingsPage
                                 } else {
                                     echo 'Write<input type="checkbox" id="write-path" name="my_option_name[write-path][' . $m . ']" value="' . $bloguser->ID .'">';
                                 }
+                                echo "<br>";
                                 $m++;
                             } ?>
                         <?php
@@ -1166,6 +1167,8 @@ function filemanager_shortcode() {
                     echo get_the_password_form();
                 } else {
                     echo "You don't have right: permission denied";
+                    global $wp; $url_link = add_query_arg(array(), $wp->request);
+                    header('Location: '.$url_link);
                 }
             }   
 
@@ -1188,6 +1191,6 @@ function filemanager_shortcode() {
 }
 
     
-add_shortcode('filemanager-shortcode', 'filemanager_shortcode');
+add_shortcode('file-manager', 'filemanager_shortcode');
 
 ?>

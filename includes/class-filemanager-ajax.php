@@ -118,6 +118,7 @@ function get_filemanager_files($posts) {
   $page = $pages;
   if(!$page) $page = 1;
   $offset = ($page-1)*$perpage;
+  global $wp; $url_link = add_query_arg(array(), $wp->request);
 
   $total_files = sizeof($files);
   $total_pages = ceil($total_files/$perpage);
@@ -134,9 +135,9 @@ function get_filemanager_files($posts) {
         $getname = getName(32);
         $getoauth = time().'||'.$getname.'||'.$realpath.'||'.$path_default;
         if($sharepath){
-          $html[] .= "<tr><td><input class='checkbox' type='checkbox' name='$realpath'/></td><td class='filemanager-table'><a id='file-id' class='filemanager-click' href='" . home_url($wp->request) . "/filemanager/?".$arg."=".$get_arg."&sharepath=".$getname."'>$file</a></td><td>$filesize</td></tr>"; 
+          $html[] .= "<tr><td><input class='checkbox' type='checkbox' name='$realpath'/></td><td class='filemanager-table'><a id='file-id' class='filemanager-click' href='" . $url_link . "?" . $arg."=".$get_arg."&sharepath=".$getname."'>$file</a></td><td>$filesize</td></tr>"; 
         } else {
-          $html[] .= "<tr><td><input class='checkbox' type='checkbox' name='$realpath'/></td><td class='filemanager-table'><a id='file-id' class='filemanager-click' href='" . home_url($wp->request) . "/filemanager/?".$arg."=$getname'>$file</a></td><td>$filesize</td></tr>";    
+          $html[] .= "<tr><td><input class='checkbox' type='checkbox' name='$realpath'/></td><td class='filemanager-table'><a id='file-id' class='filemanager-click' href='" . $url_link . "?" . $arg."=$getname'>$file</a></td><td>$filesize</td></tr>";    
         }           
         $_data[] .= $getoauth;
     }
@@ -153,9 +154,9 @@ function get_filemanager_files($posts) {
         $getname = getName(32);
         $getoauth = time().'||'.$getname.'||'.$realpath.'||'.$path_default;
         if($sharepath){
-          $html[] .= "<div class='grid-item'><input class='checkbox' type='checkbox' name='$realpath'/></input><div class='filemanager-table'><a id='file-id' class='filemanager-click' href='" . home_url($wp->request) . "/filemanager/?".$arg."=".$get_arg."&sharepath=".$getname."'>$file</a></div><div>$filesize</div></div>"; 
+          $html[] .= "<div class='grid-item'><input class='checkbox' type='checkbox' name='$realpath'/></input><div class='filemanager-table'><a id='file-id' class='filemanager-click' href='" . $url_link . "?" . $arg."=".$get_arg."&sharepath=".$getname."'>$file</a></div><div>$filesize</div></div>"; 
         } else {
-          $html[] .= "<div class='grid-item'><input class='checkbox' type='checkbox' name='$realpath'/></input><div class='filemanager-table'><a id='file-id' class='filemanager-click' href='" . home_url($wp->request) . "/filemanager/?".$arg."=$getname'>$file</a></div><div>$filesize</div></div>";    
+          $html[] .= "<div class='grid-item'><input class='checkbox' type='checkbox' name='$realpath'/></input><div class='filemanager-table'><a id='file-id' class='filemanager-click' href='" . $url_link . "?" . $arg."=$getname'>$file</a></div><div>$filesize</div></div>";    
         }           
         $_data[] .= $getoauth;
     }

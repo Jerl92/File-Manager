@@ -80,7 +80,6 @@ $blogusers = get_users();
             echo 'Write<input type="checkbox" id="write" name="write[]" value="-1">';
         }
         echo "<br>"; ?>
-        <br>
     </div>
 
 <?php  
